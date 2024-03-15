@@ -14,4 +14,4 @@ ENV PORT=8080
 
 EXPOSE ${PORT}
 
-ENTRYPOINT java -jar target/d16-workshop-0.0.1-SNAPSHOT.jar
+ENTRYPOINT java -jar target/day16-workshop-0.0.1-SNAPSHOT.jar
