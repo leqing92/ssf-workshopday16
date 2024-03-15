@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <title>Document</title>
+    </head>
+    <body>
+        <table class="table table-striped">
+            <thead>
+                <th>
+                    Game ID
+                    <a class="btn btn-primary" href="/games/sort/id">Sort</a>
+                </th>
+                <th>
+                    Home Team
+                    <a class="btn btn-primary" data-th-href="@{/games/sort/hometeam(order=${order})}">Sort</a>
+                </th>
+                <th>
+                    Opp Team
+                    <a class="btn btn-primary" data-th-href="@{/games/sort/oppteam(order=${order})}">Sort</a>
+                </th>
+                <th>
+                    Venue
+                    <a class="btn btn-primary" data-th-href="@{/games/sort/venue(order=${order})}">Sort</a>
+                </th>
+                <th>
+                    Game Date
+                    <a class="btn btn-primary" data-th-href="@{/games/sort/date(order=${order})}">Sort</a>
+                </th>
+                <th>Action</th>
+            </thead>
+            <tr data-th-each="game : ${games}">
+                <td data-th-text="${game.gameId}"></td>
+                <td data-th-text="${game.homeTeam}"></td>
+                <td data-th-text="${game.oppTeam}"></td>
+                <td data-th-text="${game.venue}"></td>
+                <td data-th-text="${#dates.format(game.gameDate,'dd-MMM-yyyy')}"></td>
+                <td>
+                    <a class="btn btn-primary" data-th-href="@{/games/edit/{gameId}(gameId=${game.gameId})}">Edit</a>
+                    <a class="btn btn-danger" data-th-href="@{/games/delete/{gameId}(gameId=${game.gameId})}">Delete</a>
+                </td>
+            </tr>
+        </table>
+        <br>
+        <a class="btn btn-primary" href="/index.html">Add New Game</a>
+    </body>
+</html>
